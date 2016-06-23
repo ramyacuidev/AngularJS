@@ -1,0 +1,22 @@
+{   "states" :  [ {
+                        "name":"Andhra Pradesh",
+                        "code":"AP",
+                        "countryCode":"IN"
+                    },
+                    {
+                        "name":"Telangana",
+                        "code":"TG",
+                        "countryCode":"IN"
+                    },
+                    {
+                        "name":"Minneapolis",
+                        "code":"MN",
+                        "countryCode":"US"
+                    },
+                    {
+                        "name":"Los angeles",
+                        "code":"CA",
+                        "countryCode":"US"
+                    }
+                ]
+}
