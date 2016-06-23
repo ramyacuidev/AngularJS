@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1" >
+		<meta charset="utg-8">
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+		<style>
+		
+		</style>	
+	</head>
+	<body>
+		<div class="container" >
+			<div class="row" ng-app="ngjs" ng-controller="cntr">
+				<div class="col-sm-6">
+				<br>
+					<table class="table table-bordered">
+						<tr><td>Edit</td><td>Id</td><td>Name</td><td>Marks</td><td>Email</td></tr>
+						<tr ng-repeat="student in students">
+							<td><button class="btn btn-primary" ng-click="ret(student.ind)">Edit</button></td>
+							<td>{{student.id}}</td>
+							<td>{{student.name|lowercase}}</td>
+							<td>{{student.marks|currency}}</td>
+							<td>{{student.email|uppercase}}</td>
+						</tr>
+					</table>
+			</div>
+				<div class="col-sm-4">
+				<br>
+					<button class="btn btn-info" ng-click="ret('empty')">Insert New Data</button>
+					<div>
+					<form role="form" method="get" action="action.php">
+						<div class="form-group">
+							<label for="id">Id</label>
+							<input type="text" class="form-control" placeholder="id" id="id" ng-model="id" name="id">
+						</div>
+						<div class="form-group">
+							<label for="name">Name</label>
+							<input type="text" class="form-control" placeholder="enter name" id="name" ng-model="name" name="name">
+						</div>
+						<div class="form-group">
+							<label for="marks">Marks</label>
+							<input type="text" class="form-control" placeholder="enter marks" id="marks" ng-model="marks" name="marks">
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="text" class="form-control" placeholder="enter email" id="email" ng-model="email" name="email">
+						</div>
+						<input type="submit" value="submit" class="btn btn-success form-control">
+					</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<script>
+			var ngapp=angular.module('ngjs',[]);//it is using to define ANGularJS App
+				ngapp.controller('cntr',function($scope,$http){
+					
+					$http.get("DBJson.php").success(function(response){
+						$scope.students=response;
+					});
+				
+					$scope.ret=function(ind)
+					{
+					//alert(ind);
+					if(ind!='empty')
+						{
+						
+					$scope.id=$scope.students[ind-1].id;
+					$scope.name=$scope.students[ind-1].name;
+					$scope.marks=$scope.students[ind-1].marks;
+					$scope.email=$scope.students[ind-1].email;
+					
+						}
+						else{
+						$scope.id='';
+					$scope.name='';
+					$scope.marks='';
+					$scope.email='';
+						}
+					
+					}
+				});
+		</script>
+	</body>
+	
+</html>	

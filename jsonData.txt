@@ -1,0 +1,5 @@
+[{"id":100,"name":"sai","marks":545,"email":"sai@gmail.com","ind":0},
+{"id":101,"name":"suresh","marks":545,"email":"suresh@gmail.com","ind":1},
+{"id":102,"name":"sree","marks":542,"email":"sree@gmail.com","ind":2},
+{"id":100,"name":"kishore","marks":445,"email":"kishore@gmail.com","ind":3},
+{"id":100,"name":"vamsee","marks":546,"email":"vamsee@gmail.com","ind":4}]
